@@ -1,4 +1,4 @@
-# GLOW Launcher v0.1
+# GLOW Launcher v1.1.0
 
 A minimalist, `open source`, dark-themed **Fortnite desktop launcher** built with **Electron 28 + TypeScript + esbuild**.
 Manage multiple Epic Games accounts, equip cosmetics, monitor STW missions, taxi players, and much more — all from a single app. 
