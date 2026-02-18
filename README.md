@@ -2,6 +2,7 @@
 
 A minimalist, `open source`, dark-themed **Fortnite desktop launcher** built with **Electron 28 + TypeScript + esbuild**.
 Manage multiple Epic Games accounts, equip cosmetics, monitor STW missions, taxi players, and much more — all from a single app. 
+Assets were taken from [AERIAL](https://github.com/Ciensprog/Aerial-Launcher/tree/main/assets/images) of [@ciensprog](https://github.com/Ciensprog)
 
 ![GLOW Banner](assets/banner.png)
 
