@@ -1,6 +1,6 @@
 {
   "name": "glow-launcher",
-  "version": "0.1.0",
+  "version": "1.6.0",
   "author": "STWJXSX",
   "description": "GLOW Launcher — Minimalist Desktop Launcher",
   "main": "dist/main/index.js",

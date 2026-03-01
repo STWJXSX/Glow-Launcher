@@ -1,8 +1,7 @@
-# GLOW Launcher v0.1
+# GLOW Launcher v1.6.0
 
 A minimalist, `open source`, dark-themed **Fortnite desktop launcher** built with **Electron 28 + TypeScript + esbuild**.
 Manage multiple Epic Games accounts, equip cosmetics, monitor STW missions, taxi players, and much more — all from a single app. 
-Assets were taken from [AERIAL](https://github.com/Ciensprog/Aerial-Launcher/tree/main/assets/images) of [@ciensprog](https://github.com/Ciensprog)
 
 ![GLOW Banner](assets/banner.png)
 
@@ -95,7 +94,7 @@ All pages are registered in `src/renderer/pages/registry.ts` and auto-sorted int
 ## Project Structure
 
 ```
-GLOW LAUNCHER v0.1/
+GLOW LAUNCHER v1.6.0/
 │
 ├── assets/                              # Image assets
 │   ├── banner.png                       #   Header logo banner
@@ -458,7 +457,7 @@ The new button appears in the sidebar automatically.
 | `npm start` | Launch from existing build |
 | `npm run typecheck` | Run TypeScript type-checking |
 | `npm run pack` | Build + package into folder (`release/win-unpacked/`) |
-| `npm run dist` | Build + create NSIS installer (`release/GLOW Launcher Setup 0.1.0.exe`) |
+| `npm run dist` | Build + create NSIS installer (`release/GLOW Launcher Setup 1.6.0.exe`) |
 
 ---
 
@@ -493,7 +492,7 @@ Packaging is handled by **electron-builder** (v24):
 # Build installer
 npm run dist
 
-# Output: release/GLOW Launcher Setup 0.1.0.exe
+# Output: release/GLOW Launcher Setup 1.6.0.exe
 ```
 
 ---
@@ -555,5 +554,5 @@ The build script automatically copies all images from `assets/` into `dist/` so 
 ---
 
 > **Author:** STWJXSX
-> **Version:** 1.1.0
+> **Version:** 1.6.0
 > **License:** No License
