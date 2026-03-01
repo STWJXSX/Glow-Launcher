@@ -52,7 +52,7 @@ function draw(): void {
             <span class="settings-item-label">App Version</span>
             <span class="settings-item-desc">Current version of GLOW Launcher</span>
           </div>
-          <span class="settings-item-value">v0.1 BETA</span>
+          <span class="settings-item-value">v1.6.0 STABLE</span>
         </div>
 
         <div class="settings-item">
