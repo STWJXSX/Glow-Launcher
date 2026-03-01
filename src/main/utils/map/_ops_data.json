@@ -1,0 +1,1175 @@
+{
+  "AbandonExpedition": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AbandonExpedition?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "expeditionId", "type": "string", "required": true, "description": "Expedition Item GUID"}
+    ]
+  },
+  "ActivateConsumable": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ActivateConsumable?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "targetAccountId", "type": "string", "required": true, "description": "Targeted user's Account Id"}
+    ]
+  },
+  "AddToCollection": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AddToCollection?profileId=collections&rvn=-1",
+    "profileId": "collections",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "category", "type": "string", "required": true, "description": "Category Template Id, e.g. CollectableCharacter:tandem"},
+      {"name": "variant", "type": "string", "required": true, "description": "The Variant Gameplaytag, e.g. AISpawnerData.Type.Tandem.SpaceChimp"},
+      {"name": "contextTags", "type": "array", "required": true, "description": "Context Gameplaytags if existing"},
+      {"name": "properties", "type": "object", "required": true, "description": "Fish: {weight, length}, NPC: {questsGiven, questsCompleted, encounterTypeFlags}"},
+      {"name": "seenState", "type": "string", "required": true, "description": "Enum EFortCollectedState: Unknown|New|Known|NewlyCollected|Collected|NewBest|NewRecord|NewLocation|NewlyCompleted|Complete"},
+      {"name": "count", "type": "number", "required": true, "description": "Catch count (fish) or talk count (npc)"}
+    ]
+  },
+  "ApplyVote": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ApplyVote?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "offerId", "type": "string", "required": true, "description": "Offer Id to vote for"}
+    ]
+  },
+  "AssignGadgetToLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AssignGadgetToLoadout?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "gadgetId", "type": "string", "required": true, "description": "Gadget Template Id, e.g. Gadget:g_supplydrop"},
+      {"name": "loadoutId", "type": "string", "required": true, "description": "Loadout Item GUID"},
+      {"name": "slotIndex", "type": "number", "required": true, "description": "Gadget Slot Index (0 or 1)"}
+    ]
+  },
+  "AssignHeroToLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AssignHeroToLoadout?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "heroId", "type": "string", "required": true, "description": "Hero (HID) Item GUID"},
+      {"name": "loadoutId", "type": "string", "required": true, "description": "Loadout Item GUID"},
+      {"name": "slotName", "type": "string", "required": true, "description": "Slot Name: CommanderSlot or FollowerSlot1-5, e.g. FollowerSlot2"}
+    ]
+  },
+  "AssignTeamPerkToLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AssignTeamPerkToLoadout?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "teamPerkId", "type": "string", "required": true, "description": "Team Perk Item GUID"},
+      {"name": "loadoutId", "type": "string", "required": true, "description": "Loadout Item GUID"}
+    ]
+  },
+  "AssignWorkerToSquad": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AssignWorkerToSquad?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "characterId", "type": "string", "required": true, "description": "Survivor (Worker) Item GUID"},
+      {"name": "squadId", "type": "string", "required": true, "description": "Squad Id, e.g. Squad_Attribute_Medicine_EMTSquad"},
+      {"name": "slotIndex", "type": "number", "required": true, "description": "Slot within the Squad (0-7, 0 = Leader)"}
+    ]
+  },
+  "AssignWorkerToSquadBatch": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AssignWorkerToSquadBatch?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "characterIds", "type": "array", "required": true, "description": "Survivor (Worker) Item GUIDs"},
+      {"name": "squadIds", "type": "array", "required": true, "description": "Squad Ids"},
+      {"name": "slotIndices", "type": "array", "required": true, "description": "Slot within each Squad (0-7, 0 = Leader)"}
+    ]
+  },
+  "AthenaPinQuest": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AthenaPinQuest?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "Deprecated, replaced by AthenaTrackQuests",
+    "payload": [
+      {"name": "pinnedQuest", "type": "string", "required": true, "description": "Quest Item GUID"}
+    ]
+  },
+  "AthenaRemoveQuests": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AthenaRemoveQuests?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "Deprecated",
+    "payload": [
+      {"name": "removedQuests", "type": "array", "required": true, "description": "Quest Item GUIDs"}
+    ]
+  },
+  "AthenaTrackQuests": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/AthenaTrackQuests?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "trackedQuestTemplateIds", "type": "array", "required": true, "description": "Quest Template IDs, e.g. Quest:quest_s34_kickstart_q07"}
+    ]
+  },
+  "BulkUpdateCollections": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/BulkUpdateCollections?profileId=collections&rvn=-1",
+    "profileId": "collections",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "items", "type": "array", "required": true, "description": "Array of collection items: [{category, variant, contextTags, properties, seenState, count}]"}
+    ]
+  },
+  "CancelOrResumeSubscription": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CancelOrResumeSubscription?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "appStore", "type": "string", "required": true, "description": "App Store the subscription belongs to, e.g. EpicPurchasingService"},
+      {"name": "uniqueSubscriptionId", "type": "string", "required": true, "description": "Subscription Id from profile"},
+      {"name": "willAutoRenew", "type": "boolean", "required": true, "description": "Whether the subscription will auto-renew"}
+    ]
+  },
+  "ChallengeBundleLevelUp": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ChallengeBundleLevelUp?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "bundleIdToLevel", "type": "string", "required": true, "description": "Challenge Bundle Item GUID"}
+    ]
+  },
+  "ClaimCollectedResources": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimCollectedResources?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "collectorsToClaim", "type": "array", "required": true, "description": "Collector Item GUIDs"}
+    ]
+  },
+  "ClaimCollectionBookPageRewards": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimCollectionBookPageRewards?profileId=collection_book_people0&rvn=-1",
+    "profileId": "collection_book_people0",
+    "payload": [
+      {"name": "pageTemplateId", "type": "string", "required": true, "description": "Page Template Id, e.g. CollectionBookPage:pagespecial_steampunk_weapons"},
+      {"name": "sectionId", "type": "string", "required": true, "description": "Section Id (ref to page section)"},
+      {"name": "selectedRewardIndex", "type": "number", "required": true, "description": "Reward index when completing a whole page"}
+    ]
+  },
+  "ClaimCollectionBookRewards": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimCollectionBookRewards?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "requiredXp", "type": "number", "required": true, "description": "XP for the Collection Book Level"},
+      {"name": "selectedRewardIndex", "type": "number", "required": true, "description": "Index of selected reward when multiple rewards are available (-1 for default)"}
+    ]
+  },
+  "ClaimImportFriendsReward": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimImportFriendsReward?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "network", "type": "string", "required": true, "description": "Enum ESocialImportPanelPlatform: Facebook|VK|Steam|Xbox|Playstation|Switch (default: Facebook)"}
+    ]
+  },
+  "ClaimLoginReward": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimLoginReward?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required"
+  },
+  "ClaimMfaEnabled": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimMfaEnabled?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "bClaimForStw", "type": "boolean", "required": true, "description": "Whether to claim the 2FA reward for StW"}
+    ]
+  },
+  "ClaimMissionAlertRewards": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimMissionAlertRewards?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required. Claims pendingMissionAlertRewards."
+  },
+  "ClaimQuestReward": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimQuestReward?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "questId", "type": "string", "required": true, "description": "Quest Item GUID"},
+      {"name": "selectedRewardIndex", "type": "number", "required": true, "description": "Index of selected reward when there is a choice (0 for default)"}
+    ]
+  },
+  "ClaimSubscriptionRewards": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClaimSubscriptionRewards?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "appStore", "type": "string", "required": true, "description": "From profile, e.g. EpicPurchasingService"},
+      {"name": "uniqueSubscriptionId", "type": "string", "required": true, "description": "Subscription Id from profile"},
+      {"name": "receiptInfo", "type": "string", "required": true, "description": "Unknown receipt info"}
+    ]
+  },
+  "ClearHeroLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClearHeroLoadout?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "loadoutId", "type": "string", "required": true, "description": "Loadout Item GUID"}
+    ]
+  },
+  "ClientQuestLogin": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ClientQuestLogin?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "streamingAppKey", "type": "string", "required": false, "description": "Can be left empty. Used for GeForceNow or XboxCloud (added since end of season 20)"}
+    ]
+  },
+  "CollectExpedition": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CollectExpedition?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "expeditionTemplate", "type": "string", "required": true, "description": "Expedition Item Template Id, e.g. Expedition:expedition_sea_supplyrun_long_t04"},
+      {"name": "expeditionId", "type": "string", "required": true, "description": "Expedition Item GUID"}
+    ]
+  },
+  "CompletePlayerSurvey": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CompletePlayerSurvey?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "surveyId", "type": "string", "required": true, "description": "Survey Id, e.g. 220320_Overall Health_FNC"},
+      {"name": "bUpdateAllSurveysMetadata", "type": "boolean", "required": false, "description": "Whether survey_data.allSurveysMetadata should update"}
+    ]
+  },
+  "ConvertItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ConvertItem?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "conversionIndex", "type": "number", "required": true, "description": "Index if there is more than 1 option (e.g. Obsidian vs Shadowshard)"}
+    ]
+  },
+  "ConvertLegacyAlterations": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ConvertLegacyAlterations?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Schematic Item GUID"}
+    ]
+  },
+  "ConvertSlottedItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ConvertSlottedItem?profileId=collection_book_people0&rvn=-1",
+    "profileId": "collection_book_people0|collection_book_schematics0",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "ConversionIndex", "type": "number", "required": true, "description": "Index if more than 1 option (e.g. Obsidian vs Shadowshard)"}
+    ]
+  },
+  "CopyCosmeticLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CopyCosmeticLoadout?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "sourceIndex", "type": "number", "required": true, "description": "Index of the Loadout to copy"},
+      {"name": "targetIndex", "type": "number", "required": true, "description": "Index of the preset to set the loadout to"},
+      {"name": "optNewNameForTarget", "type": "string", "required": false, "description": "New name for the target loadout"}
+    ]
+  },
+  "CraftWorldItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CraftWorldItem?profileId=theater0&rvn=-1",
+    "profileId": "theater0",
+    "payload": [
+      {"name": "targetSchematicItemId", "type": "string", "required": true, "description": "Schematic Item GUID"},
+      {"name": "numTimesToCraft", "type": "number", "required": true, "description": "Quantity of the item to craft"},
+      {"name": "targetSchematicTier", "type": "string", "required": true, "description": "Item tier as lowercased Roman numeral, e.g. ii"}
+    ]
+  },
+  "CreateNewBattleLabFile": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CreateNewBattleLabFile?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "templateId", "type": "string", "required": true, "description": "Island GUID"},
+      {"name": "locale", "type": "string", "required": true, "description": "Locale, e.g. en"},
+      {"name": "title", "type": "string", "required": true, "description": "Battle Lab file title"}
+    ]
+  },
+  "CreateNewIsland": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CreateNewIsland?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "templateId", "type": "string", "required": true, "description": "Island GUID"},
+      {"name": "locale", "type": "string", "required": true, "description": "Island locale, e.g. en"},
+      {"name": "title", "type": "string", "required": true, "description": "Island title"}
+    ]
+  },
+  "CreateNewIslandFromLinkCode": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/CreateNewIslandFromLinkCode?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY. Needs fork tag to work.",
+    "payload": [
+      {"name": "linkCode", "type": "string", "required": true, "description": "Island code, e.g. 1111-2222-3333"},
+      {"name": "locale", "type": "string", "required": true, "description": "Locale"},
+      {"name": "title", "type": "string", "required": true, "description": "New island title"}
+    ]
+  },
+  "DeleteBattleLabIsland": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DeleteBattleLabIsland?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "payload": [],
+    "notes": "No body required"
+  },
+  "DeleteCosmeticLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DeleteCosmeticLoadout?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "index", "type": "number", "required": true, "description": "Cosmetic Loadout Index"},
+      {"name": "fallbackLoadoutIndex", "type": "number", "required": false, "description": "Fallback loadout index (-1 for none)"},
+      {"name": "leaveNullSlot", "type": "boolean", "required": false, "description": "Whether to leave a null slot"}
+    ]
+  },
+  "DeleteIsland": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DeleteIsland?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID"}
+    ]
+  },
+  "DeleteModularCosmeticLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DeleteModularCosmeticLoadout?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "loadoutType", "type": "string", "required": true, "description": "Loadout type, e.g. CosmeticLoadout:LoadoutSchema_Platform"},
+      {"name": "presetId", "type": "number", "required": true, "description": "Loadout index"}
+    ]
+  },
+  "DepositPostResources": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DepositPostResources?profileId=theater0&rvn=-1",
+    "profileId": "theater0",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "itemsToDepositIds", "type": "array", "required": true, "description": "Array of item GUIDs to deposit"},
+      {"name": "itemCountsToDeposit", "type": "array", "required": true, "description": "Array of item quantities to deposit"}
+    ]
+  },
+  "DestroyWorldItems": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DestroyWorldItems?profileId=outpost0&rvn=-1",
+    "profileId": "outpost0|theater0|theater1|theater2",
+    "payload": [
+      {"name": "itemIds", "type": "array", "required": true, "description": "Item GUIDs to destroy (no resources returned)"}
+    ]
+  },
+  "DisassembleWorldItems": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DisassembleWorldItems?profileId=theater0&rvn=-1",
+    "profileId": "theater0|theater1|theater2",
+    "payload": [
+      {"name": "targetItemIdAndQuantityPairs", "type": "array", "required": true, "description": "Array of {itemId: string, quantity: number}"}
+    ]
+  },
+  "DuplicateIsland": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/DuplicateIsland?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "islandId", "type": "string", "required": true, "description": "Island GUID"},
+      {"name": "locale", "type": "string", "required": true, "description": "Locale, e.g. en"},
+      {"name": "newTitle", "type": "string", "required": true, "description": "Title for the duplicated island"}
+    ]
+  },
+  "EndBattleRoyaleGame": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/EndBattleRoyaleGame?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "advance", "type": "array", "required": false, "description": "Array of {statName, count, timestampOffset}"},
+      {"name": "playlistId", "type": "string", "required": false, "description": "Playlist identifier"},
+      {"name": "matchStats", "type": "object", "required": false, "description": "Match stats object: {statBucket, matchId, matchEndTime, matchPlatform, weaponStats, xPStats, bIsValid, factionTag}"},
+      {"name": "totalXPAccum", "type": "number", "required": false, "description": "Total XP accumulated"},
+      {"name": "restedXPAccum", "type": "number", "required": false, "description": "Rested XP accumulated"},
+      {"name": "friendshipXpBoost", "type": "number", "required": false, "description": "Friendship XP boost multiplier"},
+      {"name": "cosmeticXpBoost", "type": "number", "required": false, "description": "Cosmetic XP boost multiplier"},
+      {"name": "AntiAddictionPlayTimeMultiplier", "type": "number", "required": false, "description": "Anti-addiction play time multiplier"},
+      {"name": "shouldAccumulateToProfileStats", "type": "boolean", "required": false, "description": "Whether to accumulate to profile stats"},
+      {"name": "shouldSaveToRecentGameLists", "type": "boolean", "required": false, "description": "Whether to save to recent game lists"},
+      {"name": "accolades", "type": "array", "required": false, "description": "Array of {accoladeDef, templateId, count}"},
+      {"name": "shuffledLoadoutUsed", "type": "array", "required": false, "description": "Array of strings"},
+      {"name": "shuffledLockerUsedIndex", "type": "number", "required": false, "description": "Shuffled locker used index"},
+      {"name": "grantedQuestDefs", "type": "array", "required": false, "description": "Array of quest GUIDs"},
+      {"name": "secondaryXp", "type": "array", "required": false, "description": "Array of {type, secondaryXp}"}
+    ]
+  },
+  "EndBattleRoyaleGameV2": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/EndBattleRoyaleGameV2?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "playlistId", "type": "string", "required": true, "description": "Playlist identifier"},
+      {"name": "bDidPlayerWin", "type": "boolean", "required": true, "description": "Whether the player won"},
+      {"name": "victoryCrownData", "type": "object", "required": false, "description": "Victory crown data: {has_victory_crown, total_victory_crowns_bestowed_count, total_royal_royales_achieved_count, victory_crown_level, data_is_valid_for_mcp}"}
+    ]
+  },
+  "EquipModularCosmeticLoadoutPreset": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/EquipModularCosmeticLoadoutPreset?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "loadoutType", "type": "string", "required": true, "description": "Loadout type, e.g. CosmeticLoadout:LoadoutSchema_Platform"},
+      {"name": "presetId", "type": "number", "required": true, "description": "Loadout index"}
+    ]
+  },
+  "ExchangeGameCurrencyForBattlePassOffer": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ExchangeGameCurrencyForBattlePassOffer?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "offerItemIdList", "type": "array", "required": true, "description": "Battle Pass Item Offer Ids"},
+      {"name": "additionalData", "type": "object", "required": false, "description": "Additional context: {islandId, islandTitle, productTag, storeContext, sourceContext, checkoutProperties, storefront, storeId, groupId}"}
+    ]
+  },
+  "ExchangeGameCurrencyForSeasonPassOffer": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ExchangeGameCurrencyForSeasonPassOffer?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "offerItemIdList", "type": "array", "required": true, "description": "Season Pass Item Offer Ids"},
+      {"name": "seasonPassTemplateId", "type": "string", "required": true, "description": "Season Pass Template Id, e.g. AthenaSeason:athenaseason35"},
+      {"name": "additionalData", "type": "object", "required": false, "description": "Additional context: {islandId, islandTitle, productTag, storeContext, sourceContext, checkoutProperties, itemShopFilterContext, storefront, storeId, groupId}"}
+    ]
+  },
+  "ExchangeGiftToken": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ExchangeGiftToken?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [],
+    "notes": "No body required. Used to redeem the Glow Skin gift token (2019)."
+  },
+  "FortRerollDailyQuest": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/FortRerollDailyQuest?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "questId", "type": "string", "required": true, "description": "Quest Item GUID"}
+    ]
+  },
+  "GiftCatalogEntry": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/GiftCatalogEntry?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "offerId", "type": "string", "required": true, "description": "Offer Id from the catalog"},
+      {"name": "currency", "type": "string", "required": true, "description": "Currency type from offer"},
+      {"name": "currencySubType", "type": "string", "required": true, "description": "Currency sub-type from offer"},
+      {"name": "expectedTotalPrice", "type": "number", "required": true, "description": "Expected total price (calculate or use Epic's endpoint)"},
+      {"name": "gameContext", "type": "string", "required": false, "description": "Game context, e.g. Frontend.CatabaScreen"},
+      {"name": "receiverAccountIds", "type": "array", "required": true, "description": "Friends' Account Ids"},
+      {"name": "giftWrapTemplateId", "type": "string", "required": false, "description": "Empty string or GiftBox:GB_GiftWrap1 through 4"},
+      {"name": "personalMessage", "type": "string", "required": false, "description": "Personal message (no longer shown in-game since v23.00)"}
+    ]
+  },
+  "InitializeTheater": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/InitializeTheater?profileId=theater0&rvn=-1",
+    "profileId": "theater0|theater1|theater2",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "theaterGuid", "type": "string", "required": true, "description": "Theater GUID from World Info API"}
+    ]
+  },
+  "IssueFriendCode": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/IssueFriendCode?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "codeTokenType", "type": "string", "required": true, "description": "Type of token to issue"}
+    ]
+  },
+  "LockProfileForWrite": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/LockProfileForWrite?profileId=theater0&rvn=-1",
+    "profileId": "theater profiles",
+    "notes": "DedicatedServer ONLY. Was used to lock a profile for write at FN start.",
+    "payload": [
+      {"name": "code", "type": "string", "required": true, "description": "Lock code (unknown purpose)"},
+      {"name": "timeout", "type": "number", "required": true, "description": "How long (ms) the write should be locked"}
+    ]
+  },
+  "MarkCollectedItemsSeen": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/MarkCollectedItemsSeen?profileId=collections&rvn=-1",
+    "profileId": "collections",
+    "payload": [
+      {"name": "variants", "type": "array", "required": true, "description": "Array of {category: string, variant: string}"}
+    ]
+  },
+  "MarkItemSeen": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/MarkItemSeen?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign|common_core",
+    "payload": [
+      {"name": "itemIds", "type": "array", "required": true, "description": "Item GUIDs to mark as seen"}
+    ]
+  },
+  "MarkNewQuestNotificationSent": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/MarkNewQuestNotificationSent?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "itemIds", "type": "array", "required": true, "description": "Quest Item GUIDs"}
+    ]
+  },
+  "ModifyCreativePlotPermissions": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ModifyCreativePlotPermissions?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID"},
+      {"name": "permission", "type": "string", "required": true, "description": "Enum: Private|Public"},
+      {"name": "accountIds", "type": "array", "required": false, "description": "Account Ids"}
+    ]
+  },
+  "ModifyMission": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ModifyMission?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "matchmakingSessionId", "type": "string", "required": true, "description": "Matchmaking session ID"},
+      {"name": "difficulty", "type": "string", "required": true, "description": "New difficulty level"}
+    ]
+  },
+  "ModifyQuickbar": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ModifyQuickbar?profileId=theater0&rvn=-1",
+    "profileId": "theater0|theater1|theater2",
+    "payload": [
+      {"name": "primaryQuickbarChoices", "type": "array", "required": true, "description": "Array with 3 elements - Item GUID or empty string for empty slot"},
+      {"name": "secondaryQuickbarChoice", "type": "string", "required": true, "description": "Selected Trap Item GUID"}
+    ]
+  },
+  "OpenCardPack": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/OpenCardPack?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "cardPackItemId", "type": "string", "required": true, "description": "CardPack Item GUID"},
+      {"name": "selectionIdx", "type": "number", "required": false, "description": "Index of selected reward when multiple rewards exist"}
+    ]
+  },
+  "OpenCardPackBatch": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/OpenCardPackBatch?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "cardPackItemIds", "type": "array", "required": true, "description": "CardPack Item GUIDs"}
+    ]
+  },
+  "PopulatePrerolledOffers": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PopulatePrerolledOffers?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required. Prerolls XRAY Llamas."
+  },
+  "PromoteItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PromoteItem?profileId=campaign&rvn=-1",
+    "profileId": "campaign|collection_book_people0|collection_book_schematics0",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID to supercharge"}
+    ]
+  },
+  "ProtoJuno_CreateWorld": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_CreateWorld?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed)",
+    "payload": [
+      {"name": "world_metadata", "type": "object", "required": true, "description": "World metadata object"}
+    ]
+  },
+  "ProtoJuno_DeleteAllWorlds": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_DeleteAllWorlds?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed)",
+    "payload": [],
+    "notes2": "No body required"
+  },
+  "ProtoJuno_DeleteWorld": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_DeleteWorld?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed)",
+    "payload": [
+      {"name": "worldId", "type": "string", "required": true, "description": "World Profile Item GUID"}
+    ]
+  },
+  "ProtoJuno_MarkWorldDeleted": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_MarkWorldDeleted?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed). Soft delete.",
+    "payload": [
+      {"name": "worldId", "type": "string", "required": true, "description": "World Profile Item GUID"}
+    ]
+  },
+  "ProtoJuno_SetWorldName": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_SetWorldName?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed, never completed)",
+    "payload": [
+      {"name": "worldId", "type": "string", "required": true, "description": "World Profile Item GUID"},
+      {"name": "name", "type": "string", "required": true, "description": "New world name"}
+    ]
+  },
+  "ProtoJuno_UpdateWorldLastAccessTime": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_UpdateWorldLastAccessTime?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed)",
+    "payload": [
+      {"name": "worldId", "type": "string", "required": true, "description": "World Profile Item GUID"}
+    ]
+  },
+  "ProtoJuno_UpdateWorldMetadata": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_UpdateWorldMetadata?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "Deprecated LEGO test operation (removed)",
+    "payload": [
+      {"name": "worldId", "type": "string", "required": true, "description": "World Profile Item GUID"},
+      {"name": "worldMetadata", "type": "object", "required": true, "description": "Updated world metadata object"}
+    ]
+  },
+  "ProtoJuno_UpdateWorldSysMetadata": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ProtoJuno_UpdateWorldSysMetadata?profileId=proto_juno&rvn=-1",
+    "profileId": "proto_juno",
+    "notes": "DedicatedServer ONLY. Deprecated LEGO test operation (removed).",
+    "payload": [
+      {"name": "worldId", "type": "string", "required": true, "description": "World Profile Item GUID"},
+      {"name": "sysMetadata", "type": "object", "required": true, "description": "Updated system metadata object"}
+    ]
+  },
+  "PurchaseCatalogEntry": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PurchaseCatalogEntry?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "offerId", "type": "string", "required": true, "description": "Offer Id from catalog"},
+      {"name": "purchaseQuantity", "type": "number", "required": true, "description": "How many times to purchase the offer"},
+      {"name": "currency", "type": "string", "required": true, "description": "Currency type from offer"},
+      {"name": "currencySubType", "type": "string", "required": true, "description": "Currency sub-type from offer"},
+      {"name": "expectedTotalPrice", "type": "number", "required": true, "description": "Expected total price"},
+      {"name": "gameContext", "type": "string", "required": false, "description": "Game context, e.g. GameContext: Frontend.CatabaScreen"}
+    ]
+  },
+  "PurchaseMultipleCatalogEntries": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PurchaseMultipleCatalogEntries?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "purchaseInfoList", "type": "array", "required": true, "description": "Array of purchase objects: [{offerId, purchaseQuantity, currency, currencySubType, expectedTotalPrice, gameContext}]"}
+    ]
+  },
+  "PurchaseOrUpgradeHomebaseNode": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PurchaseOrUpgradeHomebaseNode?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "nodeId", "type": "string", "required": true, "description": "Node Template Id, e.g. HomebaseNode:skilltree_airstrike"}
+    ]
+  },
+  "PurchaseResearchStatUpgrade": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PurchaseResearchStatUpgrade?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "statId", "type": "string", "required": true, "description": "Valid values: fortitude, offense, resistance, technology"}
+    ]
+  },
+  "PutModularCosmeticLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/PutModularCosmeticLoadout?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "loadoutType", "type": "string", "required": true, "description": "Loadout schema type: CosmeticLoadout:LoadoutSchema_Character|Emotes|Wraps|Platform|Sparks|Jam|Vehicle"},
+      {"name": "presetId", "type": "number", "required": true, "description": "Loadout preset index"},
+      {"name": "loadoutData", "type": "string", "required": true, "description": "Stringified JSON with slots array and optional display_name. Each slot: {slot_template, equipped_item, customization_info?}"}
+    ]
+  },
+  "QueryProfile": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/QueryProfile?profileId={profileId}&rvn=-1",
+    "profileId": "ANY",
+    "payload": [],
+    "notes": "No body required. Downloads the full profile."
+  },
+  "QueryPublicProfile": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/public/QueryPublicProfile?profileId={profileId}&rvn=-1",
+    "profileId": "campaign|common_public",
+    "payload": [],
+    "notes": "No body required. Downloads the full public profile of specified account. Uses /public/ route instead of /client/."
+  },
+  "RecordCampaignMatchEnded": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RecordCampaignMatchEnded?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [],
+    "notes": "No body required. Usage unknown."
+  },
+  "RecycleItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RecycleItem?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"}
+    ]
+  },
+  "RecycleItemBatch": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RecycleItemBatch?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemIds", "type": "array", "required": true, "description": "Item GUIDs"}
+    ]
+  },
+  "RedeemRealMoneyPurchases": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RedeemRealMoneyPurchases?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "appStore", "type": "string", "required": true, "description": "App store, e.g. EpicPurchasingService"},
+      {"name": "authTokens", "type": "array", "required": false, "description": "Auth tokens from auth response or platformtoken API (required for all app stores except EpicPurchasingService & SamsungGalaxyAppStore)"},
+      {"name": "receiptIds", "type": "array", "required": false, "description": "Receipt Ids to refresh"},
+      {"name": "refreshType", "type": "string", "required": false, "description": "Enum: Default|UpdateOfflineAuth|ForceAll|ForceCurrent"},
+      {"name": "verifierModeOverride", "type": "string", "required": false, "description": "Enum: OccurrencePrimary|ReceiptOnly|ReceiptPrimary|DefaultToIapVersion|OccurrenceOnly|DefaultToConfig|OccurrenceOnlyRemoveReceipts"},
+      {"name": "purchaseCorrelationId", "type": "string", "required": false, "description": "Purchase correlation ID (can be ignored)"}
+    ]
+  },
+  "RedeemSTWAccoladeTokens": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RedeemSTWAccoladeTokens?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [],
+    "notes": "No body required. Transfers BR XP gained in StW to BR."
+  },
+  "RefreshExpeditions": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RefreshExpeditions?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required. Generates expeditions."
+  },
+  "RefundItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RefundItem?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"}
+    ]
+  },
+  "RefundMtxPurchase": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RefundMtxPurchase?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "purchaseId", "type": "string", "required": true, "description": "Purchase ID from Purchase History profile stat"},
+      {"name": "quickReturn", "type": "boolean", "required": true, "description": "Whether to use the Cancel Purchase feature"},
+      {"name": "gameContext", "type": "string", "required": false, "description": "Game context, e.g. Frontend.AthenaLobby or empty string"}
+    ]
+  },
+  "RemoveGiftBox": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RemoveGiftBox?profileId={profileId}&rvn=-1",
+    "profileId": "ANY",
+    "payload": [
+      {"name": "giftBoxItemIds", "type": "array", "required": true, "description": "Giftbox Item GUIDs to remove"}
+    ]
+  },
+  "ReportConsumableUsed": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ReportConsumableUsed?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "usedQuantity", "type": "number", "required": true, "description": "Item quantity used"},
+      {"name": "itemType", "type": "string", "required": true, "description": "Item Template Id"}
+    ]
+  },
+  "RequestRestedStateIncrease": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RequestRestedStateIncrease?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "Only works during Winterfest",
+    "payload": [
+      {"name": "timeToCompensateFor", "type": "number", "required": true, "description": "Time in seconds rested at the campfire"},
+      {"name": "restedXpGenAccumulated", "type": "number", "required": true, "description": "Amount of Supercharged XP to add"}
+    ]
+  },
+  "ResearchItemFromCollectionBook": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ResearchItemFromCollectionBook?profileId=campaign&rvn=-1",
+    "profileId": "campaign|theater0|theater1|theater2",
+    "payload": [
+      {"name": "templateId", "type": "string", "required": true, "description": "Item Template Id"}
+    ]
+  },
+  "RespecAlteration": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RespecAlteration?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "alterationSlot", "type": "number", "required": true, "description": "Perk Index"},
+      {"name": "alterationId", "type": "string", "required": true, "description": "Perk Template Id, e.g. Alteration:aid_att_damage_t05"}
+    ]
+  },
+  "RespecResearch": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RespecResearch?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required. Resets StW Research Levels."
+  },
+  "RespecUpgrades": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RespecUpgrades?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required. Resets StW Upgrade Levels."
+  },
+  "RestoreDeletedIsland": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/RestoreDeletedIsland?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID"}
+    ]
+  },
+  "ServerQuestLogin": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ServerQuestLogin?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "matchmakingSessionId", "type": "string", "required": true, "description": "Matchmaking session ID"}
+    ]
+  },
+  "SetActiveArchetype": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetActiveArchetype?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "archetypeGroup", "type": "string", "required": true, "description": "Loadout archetype to modify, e.g. CosmeticArchetype:LoadoutArchetype_Vehicles"},
+      {"name": "archetype", "type": "string", "required": true, "description": "Archetype group tag, e.g. Vehicle.Archetype.SUV or Vehicle.Archetype.SportsCar"}
+    ]
+  },
+  "SetActiveHeroLoadout": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetActiveHeroLoadout?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "selectedLoadout", "type": "string", "required": true, "description": "Loadout Item GUID"}
+    ]
+  },
+  "SetAffiliateName": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetAffiliateName?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "affiliateName", "type": "string", "required": true, "description": "Support-A-Creator code to support"}
+    ]
+  },
+  "SetCosmeticLockerBanner": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetCosmeticLockerBanner?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "lockerItem", "type": "string", "required": true, "description": "Locker Item GUID"},
+      {"name": "bannerIconTemplateName", "type": "string", "required": true, "description": "Banner Icon Id, e.g. brs10level100"},
+      {"name": "bannerColorTemplateName", "type": "string", "required": true, "description": "Banner Color Id, e.g. defaultcolor10"}
+    ]
+  },
+  "SetCosmeticLockerName": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetCosmeticLockerName?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "lockerItem", "type": "string", "required": true, "description": "Locker Item GUID"},
+      {"name": "name", "type": "string", "required": true, "description": "New loadout name"}
+    ]
+  },
+  "SetCosmeticLockerSlot": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetCosmeticLockerSlot?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "lockerItem", "type": "string", "required": true, "description": "Locker Item GUID"},
+      {"name": "category", "type": "string", "required": true, "description": "Category to set, e.g. Character, Backpack, Dance"},
+      {"name": "itemToSlot", "type": "string", "required": true, "description": "Cosmetic to equip, e.g. AthenaCharacter:CID_029_Athena_Commando_F_Halloween"},
+      {"name": "slotIndex", "type": "number", "required": true, "description": "0 normally, -1 to equip wrap on every slot, 0-5 for emotes, 0-6 for wraps"},
+      {"name": "variantUpdates", "type": "array", "required": false, "description": "Array of {channel, active, owned} variant update objects"},
+      {"name": "optLockerUseCountOverride", "type": "number", "required": false, "description": "Unknown override value"}
+    ]
+  },
+  "SetCosmeticLockerSlots": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetCosmeticLockerSlots?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "lockerItem", "type": "string", "required": true, "description": "Locker Item GUID"},
+      {"name": "loadoutData", "type": "array", "required": true, "description": "Array of {category, itemToSlot, slotIndex, variantUpdates} objects"}
+    ]
+  },
+  "SetCreativePlotMetadata": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetCreativePlotMetadata?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID"},
+      {"name": "locale", "type": "string", "required": true, "description": "Language code, e.g. de"},
+      {"name": "title", "type": "string", "required": true, "description": "Island title"},
+      {"name": "tagline", "type": "string", "required": false, "description": "Island tagline"},
+      {"name": "DescriptionTags", "type": "array", "required": false, "description": "String array of tags describing the island"},
+      {"name": "youtubeVideoId", "type": "string", "required": false, "description": "YouTube video ID for the island trailer"},
+      {"name": "introduction", "type": "string", "required": false, "description": "Island introduction text"}
+    ]
+  },
+  "SetForcedIntroPlayed": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetForcedIntroPlayed?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "forcedIntroName", "type": "string", "required": true, "description": "The forced intro's name/codename, e.g. Coconut"}
+    ]
+  },
+  "SetGameplayStats": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetGameplayStats?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "gameplayStats", "type": "array", "required": true, "description": "Array of {statName: string, statValue: number}"}
+    ]
+  },
+  "SetHardcoreModifier": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetHardcoreModifier?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "updates", "type": "array", "required": true, "description": "Array of {modifierId: string (e.g. HardcoreModifier:hcmod_003_nobuilding), bEnabled: boolean}"}
+    ]
+  },
+  "SetHeroCosmeticVariants": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetHeroCosmeticVariants?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "heroItem", "type": "string", "required": true, "description": "Hero item GUID"},
+      {"name": "outfitVariants", "type": "array", "required": true, "description": "Array of {channel, active, owned} outfit variant objects"},
+      {"name": "backblingVariants", "type": "array", "required": false, "description": "Array of {channel, active, owned} back bling variant objects"}
+    ]
+  },
+  "SetHomebaseBanner": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetHomebaseBanner?profileId=common_public&rvn=-1",
+    "profileId": "common_public",
+    "payload": [
+      {"name": "homebaseBannerIconId", "type": "string", "required": true, "description": "Banner icon asset name, e.g. standardbanner1"},
+      {"name": "homebaseBannerColorId", "type": "string", "required": true, "description": "Banner color asset name, e.g. defaultcolor2"}
+    ]
+  },
+  "SetHomebaseName": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetHomebaseName?profileId=common_public&rvn=-1",
+    "profileId": "common_public",
+    "notes": "Deprecated",
+    "payload": [
+      {"name": "homebaseName", "type": "string", "required": true, "description": "New homebase name"}
+    ]
+  },
+  "SetIntroGamePlayed": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetIntroGamePlayed?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "notes": "Removed in latest FN",
+    "payload": [],
+    "notes2": "No body required"
+  },
+  "SetItemArchivedStatusBatch": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetItemArchivedStatusBatch?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "itemIds", "type": "array", "required": true, "description": "Array of Item GUIDs"},
+      {"name": "archived", "type": "boolean", "required": true, "description": "Whether the items should be archived"}
+    ]
+  },
+  "SetItemFavoriteStatus": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetItemFavoriteStatus?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "GUID of the item"},
+      {"name": "bFavorite", "type": "boolean", "required": true, "description": "Whether the item should be favorited"}
+    ]
+  },
+  "SetItemFavoriteStatusBatch": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetItemFavoriteStatusBatch?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "itemIds", "type": "array", "required": true, "description": "Array of Item GUIDs"},
+      {"name": "itemFavStatus", "type": "array", "required": true, "description": "Array of booleans specifying new favorite state for each indexed item"}
+    ]
+  },
+  "SetLastUsedBattleLabFile": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetLastUsedBattleLabFile?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID"}
+    ]
+  },
+  "SetLastUsedCreativePlot": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetLastUsedCreativePlot?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID (sets portal to island in hub)"}
+    ]
+  },
+  "SetLastUsedProject": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetLastUsedProject?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "projectID", "type": "string", "required": true, "description": "UEFN Project GUID"}
+    ]
+  },
+  "SetLoadoutShuffleEnabled": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetLoadoutShuffleEnabled?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "loadoutType", "type": "string", "required": true, "description": "Loadout section, e.g. :LoadoutSchema_Jam (see PutModularCosmeticLoadout for values)"},
+      {"name": "bEnabled", "type": "boolean", "required": true, "description": "Whether shuffle is enabled"}
+    ]
+  },
+  "SetMatchmakingBansViewed": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetMatchmakingBansViewed?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [],
+    "notes": "No body required. Errors if no bans exist."
+  },
+  "SetMtxPlatform": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetMtxPlatform?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "newPlatform", "type": "string", "required": true, "description": "Valid: WeGame|EpicPCKorea|Epic|EpicPC|EpicAndroid|PSN|Live|IOSAppStore|Nintendo|Samsung|GooglePlay|Shared"}
+    ]
+  },
+  "SetPartyAssistQuest": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetPartyAssistQuest?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "notes": "Deprecated",
+    "payload": [
+      {"name": "questToPinAsPartyAssist", "type": "string", "required": true, "description": "Quest Item GUID. Empty string to remove current active quest."}
+    ]
+  },
+  "SetPinnedQuests": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetPinnedQuests?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "pinnedQuestIds", "type": "array", "required": true, "description": "Array of quest GUIDs to pin"}
+    ]
+  },
+  "SetRandomCosmeticLoadoutFlag": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetRandomCosmeticLoadoutFlag?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "payload": [
+      {"name": "random", "type": "boolean", "required": true, "description": "true to use a random cosmetic loadout, false otherwise"}
+    ]
+  },
+  "SetReceiveGiftsEnabled": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetReceiveGiftsEnabled?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "bReceiveGifts", "type": "boolean", "required": true, "description": "true to enable receiving gifts, false to disable"}
+    ]
+  },
+  "SetRewardGraphConfig": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetRewardGraphConfig?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "state", "type": "array", "required": true, "description": "Array of state strings"},
+      {"name": "rewardGraphId", "type": "string", "required": true, "description": "RewardGraph Item GUID"}
+    ]
+  },
+  "SetSeasonPassAutoClaim": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SetSeasonPassAutoClaim?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "seasonIds", "type": "array", "required": true, "description": "Pass IDs: br (Battle Royale), figment (OG), musicpass (Festival), juno (LEGO)"},
+      {"name": "bEnabled", "type": "boolean", "required": true, "description": "Whether to enable Auto-Claim"}
+    ]
+  },
+  "SkipTutorial": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/SkipTutorial?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [],
+    "notes": "No body required. Skips the Save the World tutorial."
+  },
+  "StartExpedition": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/StartExpedition?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "expeditionId", "type": "string", "required": true, "description": "Expedition GUID"},
+      {"name": "squadId", "type": "string", "required": true, "description": "Squad Id"},
+      {"name": "itemIds", "type": "array", "required": true, "description": "Array of hero GUIDs to use"},
+      {"name": "slotIndices", "type": "array", "required": true, "description": "Slot indices (unknown purpose)"}
+    ]
+  },
+  "StorageTransfer": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/StorageTransfer?profileId=theater0&rvn=-1",
+    "profileId": "theater0",
+    "payload": [
+      {"name": "transferOperations", "type": "array", "required": true, "description": "Array of {itemId: string, quantity: number, toStorage: boolean, newItemIdHint: string}"}
+    ]
+  },
+  "ToggleQuestActiveState": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/ToggleQuestActiveState?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "questIds", "type": "array", "required": true, "description": "Array of Quest GUIDs"}
+    ]
+  },
+  "UnassignAllSquads": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UnassignAllSquads?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "squadIds", "type": "array", "required": true, "description": "Array of squad Ids, e.g. Squad_Attribute_Medicine_EMTSquad"}
+    ]
+  },
+  "UnlockProfileForWrite": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UnlockProfileForWrite?profileId=theater0&rvn=-1",
+    "profileId": "theater profiles",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "code", "type": "string", "required": true, "description": "Lock code from theater profiles"}
+    ]
+  },
+  "UnlockRewardNode": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UnlockRewardNode?profileId=athena&rvn=-1",
+    "profileId": "athena",
+    "payload": [
+      {"name": "nodeId", "type": "string", "required": true, "description": "Reward node ID to open (from game files)"},
+      {"name": "rewardGraphId", "type": "string", "required": true, "description": "RewardGraph Item GUID"},
+      {"name": "rewardCfg", "type": "string", "required": false, "description": "Unknown config string (game uses empty string)"}
+    ]
+  },
+  "UnslotItemFromCollectionBook": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UnslotItemFromCollectionBook?profileId=campaign&rvn=-1",
+    "profileId": "campaign|theater0|theater1|theater2",
+    "payload": [
+      {"name": "templateId", "type": "string", "required": true, "description": "Item Template Id"},
+      {"name": "itemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "specific", "type": "string", "required": false, "description": "Leave as empty string"}
+    ]
+  },
+  "UpdatePlotPublishInfo": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpdatePlotPublishInfo?profileId=creative&rvn=-1",
+    "profileId": "creative",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "plotItemId", "type": "string", "required": true, "description": "Island GUID"},
+      {"name": "linkCode", "type": "string", "required": true, "description": "Island code, e.g. 1111-2222-3333"},
+      {"name": "vkProjectId", "type": "string", "required": false, "description": "Valkyrie (Creative 2.0) project ID"},
+      {"name": "vkModuleId", "type": "string", "required": false, "description": "Valkyrie (Creative 2.0) module ID"},
+      {"name": "linkVersion", "type": "number", "required": true, "description": "Island version"},
+      {"name": "moderationLinkCode", "type": "string", "required": false, "description": "Moderator island code"}
+    ]
+  },
+  "UpdateQuestClientObjectives": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpdateQuestClientObjectives?profileId=campaign&rvn=-1",
+    "profileId": "campaign|athena",
+    "payload": [
+      {"name": "advance", "type": "array", "required": true, "description": "Array of {statName: string, count: number, timestampOffset: number (use 0)}"}
+    ]
+  },
+  "UpdateQuests": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpdateQuests?profileId=athena&rvn=-1",
+    "profileId": "athena|campaign",
+    "notes": "DedicatedServer ONLY",
+    "payload": [
+      {"name": "advance", "type": "array", "required": true, "description": "Array of {statName: string, count: number, timestampOffset: number (use 0)}"}
+    ]
+  },
+  "UpgradeAlteration": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpgradeAlteration?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "alterationSlot", "type": "number", "required": true, "description": "Index of the Alteration Slot (0-5)"}
+    ]
+  },
+  "UpgradeItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpgradeItem?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID to upgrade by +1 level"}
+    ]
+  },
+  "UpgradeItemBulk": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpgradeItemBulk?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "desiredLevel", "type": "number", "required": true, "description": "Target level to upgrade to"},
+      {"name": "desiredTier", "type": "string", "required": true, "description": "Tier: no_tier or lowercased Roman numerals"},
+      {"name": "conversionRecipeIndexChoice", "type": "number", "required": false, "description": "Recipe index when multiple options exist (e.g. Obsidian vs Shadowshard), -1 for default"}
+    ]
+  },
+  "UpgradeItemRarity": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpgradeItemRarity?profileId=campaign&rvn=-1",
+    "profileId": "campaign",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID of the hero or schematic to upgrade rarity"}
+    ]
+  },
+  "UpgradeSlottedItem": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/UpgradeSlottedItem?profileId=collection_book_people0&rvn=-1",
+    "profileId": "collection_book_people0|collection_book_schematics0",
+    "payload": [
+      {"name": "targetItemId", "type": "string", "required": true, "description": "Item GUID"},
+      {"name": "desiredLevel", "type": "number", "required": true, "description": "Desired level to upgrade to"}
+    ]
+  },
+  "VerifyRealMoneyPurchase": {
+    "route": "POST /fortnite/api/game/v2/profile/{accountId}/client/VerifyRealMoneyPurchase?profileId=common_core&rvn=-1",
+    "profileId": "common_core",
+    "payload": [
+      {"name": "appStore", "type": "string", "required": true, "description": "App store from receipt, e.g. EpicPurchasingService"},
+      {"name": "appStoreId", "type": "string", "required": true, "description": "App store ID from receipt"},
+      {"name": "receiptId", "type": "string", "required": true, "description": "Receipt ID from receipt"},
+      {"name": "receiptInfo", "type": "string", "required": true, "description": "Receipt info from receipt"},
+      {"name": "purchaseCorrelationId", "type": "string", "required": false, "description": "Purchase correlation ID (source unknown, not required)"}
+    ]
+  }
+}
